@@ -1,0 +1,6 @@
+variables:
+    carne_misteriosa (float)
+    queijo_radioativo (float)
+    molho_especial (float)
+
+rules:
