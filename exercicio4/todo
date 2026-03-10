@@ -1,0 +1,40 @@
+variables:
+  energia_danny (int)
+  tipo_fantasma (str)
+  energia_fantasma (int)
+  nome_fantasma (str)
+  portal_instavel ("sim" | "não")
+
+rules:  
+  - tipos de fantasmas:
+      - comum
+      - raro
+      - chefe
+      - desconhecido
+  - inputs devem ser validados
+  
+
+outputs:
+  print: "CInFantasma - Defesa Sobrenatural do CIn!"
+
+  if: (energia_danny | energia_fantasma) != int
+  then: 
+    print: "Erro no Scanner Fenton: nível de energia inválido!"
+  
+
+  if: nome_fantasma conter "king" ou lord
+  then:
+    print: "O Scanner detectou um possível fantasma de elite!"
+  
+  if: nome_fantasma > 12
+  then:
+    print: "O nome do fantasma é assustadoramente longo..."
+  
+  if: portal_instavel == "sim"
+  then: 
+    print: "O portal da Zona Fantasma continua instável!"
+  else: 
+    print: "O portal parece estar temporariamente estável."
+  
+  if: tipo_fantasma == "desconhecido" e energia_danny >= 70
+  
