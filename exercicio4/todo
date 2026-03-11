@@ -1,40 +1,35 @@
 variables:
-  energia_danny (int)
-  tipo_fantasma (str)
-  energia_fantasma (int)
-  nome_fantasma (str)
-  portal_instavel ("sim" | "não")
-
-rules:  
-  - tipos de fantasmas:
-      - comum
-      - raro
-      - chefe
-      - desconhecido
-  - inputs devem ser validados
-  
+  - carne_misteriosa (float)
+  - queijo_radioativo (float)
+  - molho_especial (float)
+  - recipes ["Bifão de Dinossauro", "Lasanha Dimensional", "Strogonoff da Paz", "Buraco Negro Culinário"]
 
 outputs:
-  print: "CInFantasma - Defesa Sobrenatural do CIn!"
-
-  if: (energia_danny | energia_fantasma) != int
-  then: 
-    print: "Erro no Scanner Fenton: nível de energia inválido!"
-  
-
-  if: nome_fantasma conter "king" ou lord
+  if: some in ingredients <= 0
   then:
-    print: "O Scanner detectou um possível fantasma de elite!"
-  
-  if: nome_fantasma > 12
-  then:
-    print: "O nome do fantasma é assustadoramente longo..."
-  
-  if: portal_instavel == "sim"
+    print: "Vocês destruíram o parque! ESTÃO DESPEDIDOS!"
+    kill:
+
+  print: "A receita não explodiu!"
+
+  if: recipe == "Hambúrguer Supremo"
   then: 
-    print: "O portal da Zona Fantasma continua instável!"
-  else: 
-    print: "O portal parece estar temporariamente estável."
+    print: "Todas as medidas são iguais. Vocês criaram o Hambúrguer Supremo do Caos!"
   
-  if: tipo_fantasma == "desconhecido" e energia_danny >= 70
+  if: recipe = "Bifão de Dinossauro"
+  then: 
+    print: "Havia muita carne! O Musculoso vai adorar esse Bifão de Dinossauro!"
   
+  if: recipe = "Lasanha Dimensional"
+  then: 
+    print: "Tem queijo pra todo lado! Criamos uma Lasanha Dimensional!"
+
+  if: recipe = "Strogonoff da Paz"
+  then: 
+    print: "Panela cheia de molho e sorriso no rosto, criamos o Strogonoff da Paz!"
+  
+  if: recipe = "Buraco Negro Culinário"
+  then: 
+    print: "Tá tudo girando! Acabamos de criar um Buraco Negro Culinário!"
+
+  print: "OOOOOOOH! Mandaram bem, caras!"

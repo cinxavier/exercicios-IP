@@ -1,6 +1,33 @@
-variables:
-    carne_misteriosa (float)
-    queijo_radioativo (float)
-    molho_especial (float)
-
+variables: 
+  - aliens [Chama , XLR8, Diamante, Besta, Ultra-T]
+  - alien (str)
 rules:
+  - alien must be in aliens
+
+outputs:
+  print: "Ben: Tá na hora de virar herói!"
+
+  if: aliens.includes(alien)
+  then:
+    print: "Ben: Bora lá, {Alien}!"
+    print: "Gwen: Boa, Ben, agora vamos, temos que encontrar Azmuth."
+  
+  else:
+    print: "Ben: Droga, Não consigo me transformar no {Alien}."
+    print: "Gwen: Ben Tennyson! Pare com a Bobeira."
+  
+  if: alien == "Insectoide"
+  then:
+    print: "Gwen: Ben, de todos os seus bichos, você tentou escolher esse?"
+  
+  elif: alien == "Fantasmático"
+  then:
+    print: "Ben: Zs'skayr... Ainda bem que o relógio não funcionou."
+
+  elif: alien == "XLR8"
+  then:
+    print: "Ben: Vamos encontrar ele bem rápido com o XLR8!"
+
+  elif: alien == "Chama"
+  then:
+    print: "Ben: Eu tô pegando fogo!"
