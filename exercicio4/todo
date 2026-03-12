@@ -1,0 +1,35 @@
+variables:
+  - carne_misteriosa (float)
+  - queijo_radioativo (float)
+  - molho_especial (float)
+  - recipes ["Bifão de Dinossauro", "Lasanha Dimensional", "Strogonoff da Paz", "Buraco Negro Culinário"]
+
+outputs:
+  if: some in ingredients <= 0
+  then:
+    print: "Vocês destruíram o parque! ESTÃO DESPEDIDOS!"
+    kill:
+
+  print: "A receita não explodiu!"
+
+  if: recipe == "Hambúrguer Supremo"
+  then: 
+    print: "Todas as medidas são iguais. Vocês criaram o Hambúrguer Supremo do Caos!"
+  
+  if: recipe = "Bifão de Dinossauro"
+  then: 
+    print: "Havia muita carne! O Musculoso vai adorar esse Bifão de Dinossauro!"
+  
+  if: recipe = "Lasanha Dimensional"
+  then: 
+    print: "Tem queijo pra todo lado! Criamos uma Lasanha Dimensional!"
+
+  if: recipe = "Strogonoff da Paz"
+  then: 
+    print: "Panela cheia de molho e sorriso no rosto, criamos o Strogonoff da Paz!"
+  
+  if: recipe = "Buraco Negro Culinário"
+  then: 
+    print: "Tá tudo girando! Acabamos de criar um Buraco Negro Culinário!"
+
+  print: "OOOOOOOH! Mandaram bem, caras!"

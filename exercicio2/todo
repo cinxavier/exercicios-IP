@@ -1,0 +1,27 @@
+variables:
+    velocidade_IJ (int) 
+    velocidade_LR (int)
+    dificuldade_inimigos (string)
+
+rules:
+    velocidade_IJ: 1 - 1000
+    velocidade_LR: 1 - 1000
+    dificuldade_inimigos: 1 -100
+    score: velocidade_IJ * velocidade_LR / dificuldade_inimigos
+
+outputs:
+    if: score <= 65000
+    then: 
+        print: "BRUTAL! Ninguém jamais conseguiu alcançar as pontuações fantásticas do Jorel."
+    
+    elif: 65000 < score <= 99000
+    then:
+      print: "INCRÍVEL! A dupla conseguiu alcançar o top 10 nas pontuações do jogo."
+
+    elif: 99000 < score <= 153000
+    then:
+      print: "SENSACIONAL!! Os jogadores conseguiram alcançar o pódio do jogo ao lado das outras pontuações do Jorel."
+
+    elif: score > 153000
+    then:
+      print: "IMPOSSÍVEL!!! A DUPLA IMPLACÁVEL FOI CAPAZ DE QUEBRAR O RECORDE INALCANÇÁVEL DO JOREL!"
