@@ -8,15 +8,15 @@ print("CInFantasma - Defesa Sobrenatural do CIn!")
 
 if not energia_danny.isdigit() or not energia_fantasma.isdigit():
   print("Erro no Scanner Fenton: nível de energia inválido!")
-  exit()
+  quit()
 
 energia_danny  = int(energia_danny)
 energia_fantasma  = int(energia_fantasma)
   
-if nome_fantasma.__contains__("king") or nome_fantasma.__contains__("lord"):
+if "king" in nome_fantasma or "lord" in nome_fantasma:
   print("O Scanner detectou um possível fantasma de elite!")
 
-if nome_fantasma.count("",1) > 12:
+if len(nome_fantasma) > 12:
   print("O nome do fantasma é assustadoramente longo...")
 
 if portal_instavel == "sim":
@@ -30,7 +30,7 @@ if tipo_fantasma != "comum" and tipo_fantasma != "raro" and tipo_fantasma != "ch
 if tipo_fantasma == "chefe" and 80 <= energia_fantasma <= energia_danny :
   print("Danny ativou o Modo Fantasma Total!")
 
-elif tipo_fantasma == "raro" and 50 <= energia_fantasma <= energia_fantasma:
+elif tipo_fantasma == "raro" and 50 <= energia_fantasma <= energia_danny:
   print("Danny capturou o fantasma com o Fenton Thermos!" )
 
 elif energia_fantasma < 20 :
