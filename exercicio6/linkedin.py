@@ -27,8 +27,12 @@ if mutano_disponibilidade == "S":
 
 if num_candidatos == 0:
     escolhido = "Ninguem"
+    
     print(
         "Parece que ninguém quer participar da Liga da Justiça, o Batman vai ter que ouvir um Super-Esculacho do Super-Homem por não ter conseguido ninguém super forte!"
+    )
+    print(
+        "Poxa, mas que pena, os Titãns vão ter que esperar mais um pouco antes de darem mais um passo na carreira, se continuar assim, vão assinar a CLT."
     )
 
 elif num_candidatos == 1:
@@ -123,5 +127,4 @@ elif condicao == "sequestro":
         "O Batman não iria perder a chance de ter um dos seres mais poderosos do Universo DC no time, o preparo dele não permite isso!"
     )
 else:
-    if 0 < num_candidatos < 5:
-        print("Que bom que tudo deu certo, sem dificuldades!")
+    print("Que bom que tudo deu certo, sem dificuldades!")

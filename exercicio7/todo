@@ -1,0 +1,48 @@
+variables:
+  pontuacao (int)
+  nome_maquina (str)
+  quantidade_pecas (int)
+  reacao_candace (str)
+
+rules:
+  pontuação inicial: len(nome_maquina) 
+  limite de peças: 25
+  limite do nome : 15
+  
+  
+outputs:
+  # nomes definitivos
+  if: nome_maquina == HidromassagemAutomáticaDoPerry
+  then: pontuacao final *= 2
+
+  elif: nome_maquina == MaquinaDeBanhoForçado
+  then: pontuacao -= 20
+
+  # nomes variaveis
+  if: nome_maquina contains "inator"
+  then: pontuacao -= 50
+
+  elif: nome_maquina contains perry
+  then: pontuacao += 20
+
+  # reaçẽos
+  if: reacao_candace == "MÃE! O PHINEAS E O FERB ESTÃO CONSTRUINDO UMA MÁQUINA GIGANTE!"
+  then: pontuacao += 30
+
+  if: reacao_candace == "EU SABIA QUE ELES ESTAVAM APRONTANDO ALGUMA COISA!"
+  then: pontuacao += 20
+
+  if: reacao_candace == "OK... ISSO É BEM ESTRANHO"
+  then: pontuacao += 10
+
+  if: reacao_candace == "AH, NEM É TÃO IMPRESSIONANTE ASSIM"
+  then: pontuacao += 0 
+
+  if: reacao_candace == "SÉRIO? SÓ ISSO"
+  then: pontuacao -= 5
+
+  if: reacao_candace == "MÃE! A MÁQUINA SUMIU DE NOVO"
+  then: pontuacao -= 10
+
+  if: reacao_candace == "AH, ESQUECE…"
+  then: pontuacao -= 15
