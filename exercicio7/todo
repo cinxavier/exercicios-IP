@@ -22,7 +22,7 @@ outputs:
   if: nome_maquina contains "inator"
   then: pontuacao -= 50
 
-  elif: nome_maquina contains perry
+  elif: nome_maquina contains "perry"
   then: pontuacao += 20
 
   # reaçẽos
