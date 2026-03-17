@@ -13,7 +13,7 @@ limite_nome = 15
 
 print("\npontuação: ", pontuacao1)
 
-if nome_maquina1 == "MaquinaDeBanhoForçado":
+if nome_maquina1 == "MáquinaDeBanhoForçado":
     pontuacao1 -= 20
     print("pontuacao: -20 | total = ", pontuacao1)
 

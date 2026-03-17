@@ -7,13 +7,25 @@ limite_pecas = 25
 limite_nome = 15
 
 
-if nome_maquina1 == "MaquinaDeBanhoForçado":
+if nome_maquina1 == "MáquinaDeBanhoForçado":
     pontuacao1 -= 20
 
-if all(l in nome_maquina1 for l in ("i", "n", "a", "t", "o", "r")):
+if (
+    "i" in nome_maquina1
+    and "n" in nome_maquina1
+    and "a" in nome_maquina1
+    and "t" in nome_maquina1
+    and "o" in nome_maquina1
+    and "r" in nome_maquina1
+):
     pontuacao1 -= 50
 
-if all(l in nome_maquina1 for l in ("P", "e", "r", "y")):
+if (
+    "P" in nome_maquina1
+    and "e" in nome_maquina1
+    and "r" in nome_maquina1
+    and "y" in nome_maquina1
+):
     pontuacao1 += 20
 
     # reação 1
@@ -52,13 +64,25 @@ quantidade_pecas2 = int(input())
 reacao_candace2 = input()
 pontuacao2 = len(nome_maquina2) + quantidade_pecas2
 
-if nome_maquina2 == "MaquinaDeBanhoForçado":
+if nome_maquina2 == "MáquinaDeBanhoForçado":
     pontuacao2 -= 20
 
-if all(l in nome_maquina2 for l in ("i", "n", "a", "t", "o", "r")):
+if (
+    "i" in nome_maquina2
+    and "n" in nome_maquina2
+    and "a" in nome_maquina2
+    and "t" in nome_maquina2
+    and "o" in nome_maquina2
+    and "r" in nome_maquina2
+):
     pontuacao2 -= 50
 
-if all(l in nome_maquina2 for l in ("P", "e", "r", "y")):
+if (
+    "P" in nome_maquina2
+    and "e" in nome_maquina2
+    and "r" in nome_maquina2
+    and "y" in nome_maquina2
+):
     pontuacao2 += 20
 
     # reação 1
@@ -97,13 +121,25 @@ quantidade_pecas3 = int(input())
 reacao_candace3 = input()
 pontuacao3 = len(nome_maquina3) + quantidade_pecas3
 
-if nome_maquina3 == "MaquinaDeBanhoForçado":
+if nome_maquina3 == "MáquinaDeBanhoForçado":
     pontuacao3 -= 20
 
-if all(l in nome_maquina3 for l in ("i", "n", "a", "t", "o", "r")):
+if (
+    "i" in nome_maquina3
+    and "n" in nome_maquina3
+    and "a" in nome_maquina3
+    and "t" in nome_maquina3
+    and "o" in nome_maquina3
+    and "r" in nome_maquina3
+):
     pontuacao3 -= 50
 
-if all(l in nome_maquina3 for l in ("P", "e", "r", "y")):
+if (
+    "P" in nome_maquina3
+    and "e" in nome_maquina3
+    and "r" in nome_maquina3
+    and "y" in nome_maquina3
+):
     pontuacao3 += 20
 
     # reação 1
@@ -144,13 +180,25 @@ reacao_candace4 = input()
 pontuacao4 = len(nome_maquina4) + quantidade_pecas4
 
 
-if nome_maquina4 == "MaquinaDeBanhoForçado":
+if nome_maquina4 == "MáquinaDeBanhoForçado":
     pontuacao4 -= 20
 
-if all(l in nome_maquina4 for l in ("i", "n", "a", "t", "o", "r")):
+if (
+    "i" in nome_maquina4
+    and "n" in nome_maquina4
+    and "a" in nome_maquina4
+    and "t" in nome_maquina4
+    and "o" in nome_maquina4
+    and "r" in nome_maquina4
+):
     pontuacao4 -= 50
 
-if all(l in nome_maquina4 for l in ("P", "e", "r", "y")):
+if (
+    "P" in nome_maquina4
+    and "e" in nome_maquina4
+    and "r" in nome_maquina4
+    and "y" in nome_maquina4
+):
     pontuacao4 += 20
 
     # reação 1
@@ -185,101 +233,241 @@ if nome_maquina4 == "HidromassagemAutomáticaDoPerry":
 
 # ======================== ordenação das máquinas =========================================
 
-# maquinas 1 e 2
-if pontuacao1 < pontuacao2:
-    nome_maquina1, nome_maquina2 = nome_maquina2, nome_maquina1
-    pontuacao1, pontuacao2 = pontuacao2, pontuacao1
+primeiro = nome_maquina1
+v_primeiro = pontuacao1
+pc_primeiro = quantidade_pecas1
 
-# elif pontuacao1 == pontuacao2:
-#     parametros1 = len(nome_maquina1) + quantidade_pecas1
-#     parametros2 = len(nome_maquina2) + quantidade_pecas2
+segundo = nome_maquina2
+v_segundo = pontuacao2
+pc_segundo = quantidade_pecas2
 
-#     if parametros1 < parametros2:
-#         nome_maquina1, nome_maquina2 = nome_maquina2, nome_maquina1
-#         pontuacao1, pontuacao2 = pontuacao2, pontuacao1
+terceiro = nome_maquina3
+v_terceiro = pontuacao3
+pc_terceiro = quantidade_pecas3
 
-#     elif parametros1 == parametros2:
-#         if nome_maquina1 < nome_maquina2:
-#             nome_maquina1, nome_maquina2 = nome_maquina2, nome_maquina1
-#             pontuacao1, pontuacao2 = pontuacao2, pontuacao1
+quarto = nome_maquina4
+v_quarto = pontuacao4
+pc_quarto = quantidade_pecas4
 
-# maquinas 1 e 3
-if pontuacao1 < pontuacao3:
-    nome_maquina1, nome_maquina3 = nome_maquina3, nome_maquina1
-    pontuacao1, pontuacao3 = pontuacao3, pontuacao1
+# posições 1 e 2
+if v_primeiro < v_segundo:
+    primeiro, segundo = segundo, primeiro
+    v_primeiro, v_segundo = v_segundo, v_primeiro
+    pc_primeiro, pc_segundo = pc_segundo, pc_primeiro
 
-# elif pontuacao1 == pontuacao3:
-#     parametros1 = len(nome_maquina1) + quantidade_pecas1
-#     parametros3 = len(nome_maquina3) + quantidade_pecas3
+# desempate entre 1 e 2
+elif v_primeiro == v_segundo:
+    params_primeiro = 0
+    params_segundo = 0
 
-#     if parametros1 < parametros3:
-#         nome_maquina1, nome_maquina3 = nome_maquina3, nome_maquina1
-#         pontuacao1, pontuacao3 = pontuacao3, pontuacao1
+    # parametros do primeiro
+    if len(primeiro) > limite_nome:
+        params_primeiro += 1
+    if pc_primeiro > limite_pecas:
+        params_primeiro += 1
 
-#     elif parametros1 == parametros3:
-#         if nome_maquina1 < nome_maquina3:
-#             nome_maquina1, nome_maquina3 = nome_maquina3, nome_maquina1
-#             pontuacao1, pontuacao3 = pontuacao3, pontuacao1
-            
-# # maquinas 1 e 4
-if pontuacao1 < pontuacao4:
-    nome_maquina1, nome_maquina4 = nome_maquina4, nome_maquina1
-    pontuacao1, pontuacao4 = pontuacao4, pontuacao1
+    # parametros do segundo
+    if len(segundo) > limite_nome:
+        params_segundo += 1
+    if pc_segundo > limite_pecas:
+        params_segundo += 1
 
-# elif pontuacao1 == pontuacao4:
-#     parametros1 = len(nome_maquina1) + quantidade_pecas1
-#     parametros4 = len(nome_maquina4) + quantidade_pecas4
+    # decisão de desempate
+    if params_primeiro < params_segundo:
+        primeiro, segundo = segundo, primeiro
+        v_primeiro, v_segundo = v_segundo, v_primeiro
+        pc_primeiro, pc_segundo = pc_segundo, pc_primeiro
+    elif params_primeiro == params_segundo:
+        if len(primeiro) < len(segundo):
+            primeiro, segundo = segundo, primeiro
+            v_primeiro, v_segundo = v_segundo, v_primeiro
+            pc_primeiro, pc_segundo = pc_segundo, pc_primeiro
 
-#     if parametros1 < parametros4:
-#         nome_maquina1, nome_maquina4 = nome_maquina4, nome_maquina1
-#         pontuacao1, pontuacao4 = pontuacao4, pontuacao1
+# ==============================
 
-#     elif parametros1 == parametros4:
-#         if nome_maquina1 < nome_maquina4:
-#             nome_maquina1, nome_maquina4 = nome_maquina4, nome_maquina1
-#             pontuacao1, pontuacao4 = pontuacao4, pontuacao1
+# posições 1 e 3
+if v_primeiro < v_terceiro:
+    primeiro, terceiro = terceiro, primeiro
+    v_primeiro, v_terceiro = v_terceiro, v_primeiro
+    pc_primeiro, pc_terceiro = pc_terceiro, pc_primeiro
 
-# maquinas 2 e 3
-if pontuacao2 < pontuacao3:
-    nome_maquina2, nome_maquina3 = nome_maquina3, nome_maquina2
-    pontuacao2, pontuacao3 = pontuacao3, pontuacao2
-    
-# elif pontuacao2 == pontuacao3:
-#     parametros2 = len(nome_maquina2) + quantidade_pecas2
-#     parametros3 = len(nome_maquina3) + quantidade_pecas3
+# desempate entre 1 e 3
+elif v_primeiro == v_terceiro:
+    params_primeiro = 0
+    params_terceiro = 0
 
-#     if parametros2 < parametros3:
-#         nome_maquina2, nome_maquina3 = nome_maquina3, nome_maquina2
-#         pontuacao2, pontuacao3 = pontuacao3, pontuacao2
+    # parametros do primeiro
+    if len(primeiro) > limite_nome:
+        params_primeiro += 1
+    if pc_primeiro > limite_pecas:
+        params_primeiro += 1
 
-#     elif parametros2 == parametros3:
-#         if nome_maquina2 < nome_maquina3:
-#             nome_maquina2, nome_maquina3 = nome_maquina3, nome_maquina2
-#             pontuacao2, pontuacao3 = pontuacao3, pontuacao2
+    # parametros do terceiro
+    if len(terceiro) > limite_nome:
+        params_terceiro += 1
+    if pc_terceiro > limite_pecas:
+        params_terceiro += 1
 
-# maquinas 2 e 4
-if pontuacao2 < pontuacao4:
-    nome_maquina2, nome_maquina4 = nome_maquina4, nome_maquina2
-    pontuacao2, pontuacao4 = pontuacao4, pontuacao2
+    # decisão de desempate
+    if params_primeiro < params_terceiro:
+        primeiro, terceiro = terceiro, primeiro
+        v_primeiro, v_terceiro = v_terceiro, v_primeiro
+        pc_primeiro, pc_terceiro = pc_terceiro, pc_primeiro
+    elif params_primeiro == params_terceiro:
+        if len(primeiro) < len(terceiro):
+            primeiro, terceiro = terceiro, primeiro
+            v_primeiro, v_terceiro = v_terceiro, v_primeiro
+            pc_primeiro, pc_terceiro = pc_terceiro, pc_primeiro
 
-# elif pontuacao2 == pontuacao4:
-#     parametros2 = len(nome_maquina2) + quantidade_pecas2
-#     parametros4 = len(nome_maquina4) + quantidade_pecas4
+# ==============================
 
-#     if parametros2 < parametros4:
-#         nome_maquina2, nome_maquina4 = nome_maquina4, nome_maquina2
-#         pontuacao2, pontuacao4 = pontuacao4, pontuacao2
+# posições 1 e 4
+if v_primeiro < v_quarto:
+    primeiro, quarto = quarto, primeiro
+    v_primeiro, v_quarto = v_quarto, v_primeiro
+    pc_primeiro, pc_quarto = pc_quarto, pc_primeiro
 
-#     elif parametros2 == parametros4:
-#         if nome_maquina2 < nome_maquina4:
-#             nome_maquina2, nome_maquina4 = nome_maquina4, nome_maquina2
-#             pontuacao2, pontuacao4 = pontuacao4, pontuacao2
+# desempate entre 1 e 4
+elif v_primeiro == v_quarto:
+    params_primeiro = 0
+    params_quarto = 0
 
-print(f"1º lugar - {nome_maquina1} : {pontuacao1} pontos")
-print(f"2º lugar - {nome_maquina2} : {pontuacao2} pontos")
-print(f"3º lugar - {nome_maquina3} : {pontuacao3} pontos")
-print(f"4º lugar - {nome_maquina4} : {pontuacao4} pontos")
+    # parametros do primeiro
+    if len(primeiro) > limite_nome:
+        params_primeiro += 1
+    if pc_primeiro > limite_pecas:
+        params_primeiro += 1
 
+    # parametros do quarto
+    if len(quarto) > limite_nome:
+        params_quarto += 1
+    if pc_quarto > limite_pecas:
+        params_quarto += 1
+
+    # decisão de desempate
+    if params_primeiro < params_quarto:
+        primeiro, quarto = quarto, primeiro
+        v_primeiro, v_quarto = v_quarto, v_primeiro
+        pc_primeiro, pc_quarto = pc_quarto, pc_primeiro
+    elif params_primeiro == params_quarto:
+        if len(primeiro) < len(quarto):
+            primeiro, quarto = quarto, primeiro
+            v_primeiro, v_quarto = v_quarto, v_primeiro
+            pc_primeiro, pc_quarto = pc_quarto, pc_primeiro
+
+# =============================
+
+# posições 2 e 3
+if v_segundo < v_terceiro:
+    segundo, terceiro = terceiro, segundo
+    v_segundo, v_terceiro = v_terceiro, v_segundo
+    pc_segundo, pc_terceiro = pc_terceiro, pc_segundo
+
+# desempate entre 2 e 3
+elif v_segundo == v_terceiro:
+    params_segundo = 0
+    params_terceiro = 0
+
+    # parametros do segundo
+    if len(segundo) > limite_nome:
+        params_segundo += 1
+    if pc_segundo > limite_pecas:
+        params_segundo += 1
+
+    # parametros do terceiro
+    if len(terceiro) > limite_nome:
+        params_terceiro += 1
+    if pc_terceiro > limite_pecas:
+        params_terceiro += 1
+
+    # decisão de desempate
+    if params_segundo < params_terceiro:
+        segundo, terceiro = terceiro, segundo
+        v_segundo, v_terceiro = v_terceiro, v_segundo
+        pc_segundo, pc_terceiro = pc_terceiro, pc_segundo
+    elif params_segundo == params_terceiro:
+        if len(segundo) < len(terceiro):
+            segundo, terceiro = terceiro, segundo
+            v_segundo, v_terceiro = v_terceiro, v_segundo
+            pc_segundo, pc_terceiro = pc_terceiro, pc_segundo
+
+
+# =============================
+
+# posições 2 e 4
+if v_segundo < v_quarto:
+    segundo, quarto = quarto, segundo
+    v_segundo, v_quarto = v_quarto, v_segundo
+    pc_segundo, pc_quarto = pc_quarto, pc_segundo
+
+# desempate entre 2 e 4
+elif v_segundo == v_quarto:
+    params_segundo = 0
+    params_quarto = 0
+
+    # parametros do segundo
+    if len(segundo) > limite_nome:
+        params_segundo += 1
+    if pc_segundo > limite_pecas:
+        params_segundo += 1
+
+    # parametros do quarto
+    if len(quarto) > limite_nome:
+        params_quarto += 1
+    if pc_quarto > limite_pecas:
+        params_quarto += 1
+
+    # decisão de desempate
+    if params_segundo < params_quarto:
+        segundo, quarto = quarto, segundo
+        v_segundo, v_quarto = v_quarto, v_segundo
+        pc_segundo, pc_quarto = pc_quarto, pc_segundo
+    elif params_segundo == params_quarto:
+        if len(segundo) < len(quarto):
+            segundo, quarto = quarto, segundo
+            v_segundo, v_quarto = v_quarto, v_segundo
+            pc_segundo, pc_quarto = pc_quarto, pc_segundo
+
+# ============================
+
+# posições 3 e 4
+if v_terceiro < v_quarto:
+    terceiro, quarto = quarto, terceiro
+    v_terceiro, v_quarto = v_quarto, v_terceiro
+    pc_terceiro, pc_quarto = pc_quarto, pc_terceiro
+
+# desempate entre 3 e 4
+elif v_terceiro == v_quarto:
+    params_terceiro = 0
+    params_quarto = 0
+
+    # parametros do terceiro
+    if len(terceiro) > limite_nome:
+        params_terceiro += 1
+    if pc_terceiro > limite_pecas:
+        params_terceiro += 1
+
+    # parametros do quarto
+    if len(quarto) > limite_nome:
+        params_quarto += 1
+    if pc_quarto > limite_pecas:
+        params_quarto += 1
+
+    # decisão de desempate
+    if params_terceiro < params_quarto:
+        terceiro, quarto = quarto, terceiro
+        v_terceiro, v_quarto = v_quarto, v_terceiro
+        pc_terceiro, pc_quarto = pc_quarto, pc_terceiro
+    elif params_terceiro == params_quarto:
+        if len(terceiro) < len(quarto):
+            terceiro, quarto = quarto, terceiro
+            v_terceiro, v_quarto = v_quarto, v_terceiro
+            pc_terceiro, pc_quarto = pc_quarto, pc_terceiro
+
+
+print(f"1º lugar - {primeiro} : {v_primeiro} pontos")
+print(f"2º lugar - {segundo} : {v_segundo} pontos")
+print(f"3º lugar - {terceiro} : {v_terceiro} pontos")
+print(f"4º lugar - {quarto} : {v_quarto} pontos")
 
 # codigo desnecessariexcessivamente longo
-

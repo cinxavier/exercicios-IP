@@ -1,3 +1,3 @@
-var1 = "12345"
-var2 ="123"
+var1 = "b"
+var2 ="a"
 print(var1 > var2)
