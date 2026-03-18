@@ -263,13 +263,9 @@ elif v_primeiro == v_segundo:
     # parametros do primeiro
     if len(primeiro) > limite_nome:
         params_primeiro += 1
-    if pc_primeiro > limite_pecas:
-        params_primeiro += 1
 
     # parametros do segundo
     if len(segundo) > limite_nome:
-        params_segundo += 1
-    if pc_segundo > limite_pecas:
         params_segundo += 1
 
     # decisão de desempate
@@ -278,10 +274,24 @@ elif v_primeiro == v_segundo:
         v_primeiro, v_segundo = v_segundo, v_primeiro
         pc_primeiro, pc_segundo = pc_segundo, pc_primeiro
     elif params_primeiro == params_segundo:
-        if len(primeiro) < len(segundo):
+
+        # peças do primeiro
+        if pc_primeiro > limite_pecas:
+            params_primeiro += 1
+        # peças do segundo
+        if pc_segundo > limite_pecas:
+            params_segundo += 1
+        
+        # decisão de desempate
+        if params_primeiro < params_segundo:
             primeiro, segundo = segundo, primeiro
             v_primeiro, v_segundo = v_segundo, v_primeiro
             pc_primeiro, pc_segundo = pc_segundo, pc_primeiro
+        elif params_primeiro == params_segundo:
+            if len(primeiro) < len(segundo):
+                primeiro, segundo = segundo, primeiro
+                v_primeiro, v_segundo = v_segundo, v_primeiro
+                pc_primeiro, pc_segundo = pc_segundo, pc_primeiro
 
 # ==============================
 
@@ -296,28 +306,30 @@ elif v_primeiro == v_terceiro:
     params_primeiro = 0
     params_terceiro = 0
 
-    # parametros do primeiro
     if len(primeiro) > limite_nome:
         params_primeiro += 1
-    if pc_primeiro > limite_pecas:
-        params_primeiro += 1
-
-    # parametros do terceiro
     if len(terceiro) > limite_nome:
         params_terceiro += 1
-    if pc_terceiro > limite_pecas:
-        params_terceiro += 1
 
-    # decisão de desempate
     if params_primeiro < params_terceiro:
         primeiro, terceiro = terceiro, primeiro
         v_primeiro, v_terceiro = v_terceiro, v_primeiro
         pc_primeiro, pc_terceiro = pc_terceiro, pc_primeiro
     elif params_primeiro == params_terceiro:
-        if len(primeiro) < len(terceiro):
+        if pc_primeiro > limite_pecas:
+            params_primeiro += 1
+        if pc_terceiro > limite_pecas:
+            params_terceiro += 1
+
+        if params_primeiro < params_terceiro:
             primeiro, terceiro = terceiro, primeiro
             v_primeiro, v_terceiro = v_terceiro, v_primeiro
             pc_primeiro, pc_terceiro = pc_terceiro, pc_primeiro
+        elif params_primeiro == params_terceiro:
+            if len(primeiro) < len(terceiro):
+                primeiro, terceiro = terceiro, primeiro
+                v_primeiro, v_terceiro = v_terceiro, v_primeiro
+                pc_primeiro, pc_terceiro = pc_terceiro, pc_primeiro
 
 # ==============================
 
@@ -332,28 +344,30 @@ elif v_primeiro == v_quarto:
     params_primeiro = 0
     params_quarto = 0
 
-    # parametros do primeiro
     if len(primeiro) > limite_nome:
         params_primeiro += 1
-    if pc_primeiro > limite_pecas:
-        params_primeiro += 1
-
-    # parametros do quarto
     if len(quarto) > limite_nome:
         params_quarto += 1
-    if pc_quarto > limite_pecas:
-        params_quarto += 1
 
-    # decisão de desempate
     if params_primeiro < params_quarto:
         primeiro, quarto = quarto, primeiro
         v_primeiro, v_quarto = v_quarto, v_primeiro
         pc_primeiro, pc_quarto = pc_quarto, pc_primeiro
     elif params_primeiro == params_quarto:
-        if len(primeiro) < len(quarto):
+        if pc_primeiro > limite_pecas:
+            params_primeiro += 1
+        if pc_quarto > limite_pecas:
+            params_quarto += 1
+
+        if params_primeiro < params_quarto:
             primeiro, quarto = quarto, primeiro
             v_primeiro, v_quarto = v_quarto, v_primeiro
             pc_primeiro, pc_quarto = pc_quarto, pc_primeiro
+        elif params_primeiro == params_quarto:
+            if len(primeiro) < len(quarto):
+                primeiro, quarto = quarto, primeiro
+                v_primeiro, v_quarto = v_quarto, v_primeiro
+                pc_primeiro, pc_quarto = pc_quarto, pc_primeiro
 
 # =============================
 
@@ -368,29 +382,30 @@ elif v_segundo == v_terceiro:
     params_segundo = 0
     params_terceiro = 0
 
-    # parametros do segundo
     if len(segundo) > limite_nome:
         params_segundo += 1
-    if pc_segundo > limite_pecas:
-        params_segundo += 1
-
-    # parametros do terceiro
     if len(terceiro) > limite_nome:
         params_terceiro += 1
-    if pc_terceiro > limite_pecas:
-        params_terceiro += 1
 
-    # decisão de desempate
     if params_segundo < params_terceiro:
         segundo, terceiro = terceiro, segundo
         v_segundo, v_terceiro = v_terceiro, v_segundo
         pc_segundo, pc_terceiro = pc_terceiro, pc_segundo
     elif params_segundo == params_terceiro:
-        if len(segundo) < len(terceiro):
+        if pc_segundo > limite_pecas:
+            params_segundo += 1
+        if pc_terceiro > limite_pecas:
+            params_terceiro += 1
+
+        if params_segundo < params_terceiro:
             segundo, terceiro = terceiro, segundo
             v_segundo, v_terceiro = v_terceiro, v_segundo
             pc_segundo, pc_terceiro = pc_terceiro, pc_segundo
-
+        elif params_segundo == params_terceiro:
+            if len(segundo) < len(terceiro):
+                segundo, terceiro = terceiro, segundo
+                v_segundo, v_terceiro = v_terceiro, v_segundo
+                pc_segundo, pc_terceiro = pc_terceiro, pc_segundo
 
 # =============================
 
@@ -405,28 +420,30 @@ elif v_segundo == v_quarto:
     params_segundo = 0
     params_quarto = 0
 
-    # parametros do segundo
     if len(segundo) > limite_nome:
         params_segundo += 1
-    if pc_segundo > limite_pecas:
-        params_segundo += 1
-
-    # parametros do quarto
     if len(quarto) > limite_nome:
         params_quarto += 1
-    if pc_quarto > limite_pecas:
-        params_quarto += 1
 
-    # decisão de desempate
     if params_segundo < params_quarto:
         segundo, quarto = quarto, segundo
         v_segundo, v_quarto = v_quarto, v_segundo
         pc_segundo, pc_quarto = pc_quarto, pc_segundo
     elif params_segundo == params_quarto:
-        if len(segundo) < len(quarto):
+        if pc_segundo > limite_pecas:
+            params_segundo += 1
+        if pc_quarto > limite_pecas:
+            params_quarto += 1
+
+        if params_segundo < params_quarto:
             segundo, quarto = quarto, segundo
             v_segundo, v_quarto = v_quarto, v_segundo
             pc_segundo, pc_quarto = pc_quarto, pc_segundo
+        elif params_segundo == params_quarto:
+            if len(segundo) < len(quarto):
+                segundo, quarto = quarto, segundo
+                v_segundo, v_quarto = v_quarto, v_segundo
+                pc_segundo, pc_quarto = pc_quarto, pc_segundo
 
 # ============================
 
@@ -441,28 +458,30 @@ elif v_terceiro == v_quarto:
     params_terceiro = 0
     params_quarto = 0
 
-    # parametros do terceiro
     if len(terceiro) > limite_nome:
         params_terceiro += 1
-    if pc_terceiro > limite_pecas:
-        params_terceiro += 1
-
-    # parametros do quarto
     if len(quarto) > limite_nome:
         params_quarto += 1
-    if pc_quarto > limite_pecas:
-        params_quarto += 1
 
-    # decisão de desempate
     if params_terceiro < params_quarto:
         terceiro, quarto = quarto, terceiro
         v_terceiro, v_quarto = v_quarto, v_terceiro
         pc_terceiro, pc_quarto = pc_quarto, pc_terceiro
     elif params_terceiro == params_quarto:
-        if len(terceiro) < len(quarto):
+        if pc_terceiro > limite_pecas:
+            params_terceiro += 1
+        if pc_quarto > limite_pecas:
+            params_quarto += 1
+
+        if params_terceiro < params_quarto:
             terceiro, quarto = quarto, terceiro
             v_terceiro, v_quarto = v_quarto, v_terceiro
             pc_terceiro, pc_quarto = pc_quarto, pc_terceiro
+        elif params_terceiro == params_quarto:
+            if len(terceiro) < len(quarto):
+                terceiro, quarto = quarto, terceiro
+                v_terceiro, v_quarto = v_quarto, v_terceiro
+                pc_terceiro, pc_quarto = pc_quarto, pc_terceiro
 
 
 print(f"1º lugar - {primeiro} : {v_primeiro} pontos")
