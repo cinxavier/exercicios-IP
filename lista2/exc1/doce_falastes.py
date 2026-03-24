@@ -2,16 +2,14 @@ songs = ""
 num_of_songs = 0
 runnig = True
 
-while True:
-    new_song = input()
+while runnig:
+    new_song = str(input())
 
-    if new_song == "":
-        break
-    else:
-        if songs != "":
-        songs += new_song
+    if new_song.lower() == "voa, voa brabuleta":
+        runnig = False
+    elif len(new_song) > 0:
+        songs += new_song if songs == "" else " - " + new_song 
         num_of_songs += 1
-            songs += " - "
 
 
 print("Bom dia, dona Maria! Aqui vão as músicas mais pedidas de hoje!")
