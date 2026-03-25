@@ -39,5 +39,5 @@ while runnig:
     if dinheiro_inicial <= 0 or dinheiro_inicial - custo < 0:
       print("Enlouqueceram? Vocês estão falidos")
       runnig = False
-if not amauri_action:
-  print(f"{qtd_compras} - {custo_total} reais")
+
+print(f"{qtd_compras} - {custo_total} reais")
