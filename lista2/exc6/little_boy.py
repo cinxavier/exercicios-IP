@@ -35,7 +35,7 @@ while viajando:
     if entrada == "FIM":
       ouvindo = False
       if (not tem_I or not tem_E or not tem_L) and pilha == "":
-        if cidade < qtd_cidades:
+        # if cidade < qtd_cidades:
           print("Ô cidadezinha morta, Josué. Ninguém abriu a boca pra dar um pio do teu pai. Dobra essa mesa que aqui a gente só gastou saliva à toa.")
         
       elif tem_I and tem_E and tem_L and pilha == "":

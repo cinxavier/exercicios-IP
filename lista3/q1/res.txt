@@ -1,0 +1,4 @@
+3
+embarcar Trillian
+priorizar Zaphod Beeblebrox
+remover Marvin
