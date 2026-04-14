@@ -35,8 +35,8 @@ for num_pen_atual in range(num_pendrives):
             if letra_senha == chute:  # e se o chute for correto
               nova_descoberta += chute
 
-            else:  # se o chute for errado, mantém o espaço vazio
-              nova_descoberta += "_"
+            else:  # se o chute for errado
+              nova_descoberta += "_" #  mantém o espaço vazio
           else:
             nova_descoberta += letra_descoberta  # mantém a resposta já descoberta
         if chute in senha:

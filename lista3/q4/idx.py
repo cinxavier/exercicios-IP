@@ -22,17 +22,17 @@ while idx_lista_planetas < len(lista_planetas):
     idx_lista_planetas += 1
 
 for _ in lista_planetas:
-  for i in range(len(lista_planetas) - 1):
-    atual = lista_planetas[i]
-    prox = lista_planetas[i + 1]
+  for idx in range(len(lista_planetas) - 1):
+    atual = lista_planetas[idx]
+    prox = lista_planetas[idx + 1]
     if atual[1] < prox[1]:
-      lista_planetas[i], lista_planetas[i + 1] = (
-        lista_planetas[i + 1],
-        lista_planetas[i],
+      lista_planetas[idx], lista_planetas[idx + 1] = (
+        lista_planetas[idx + 1],
+        lista_planetas[idx],
       )
     elif atual[1] == prox[1]:
       if atual[0][0][0].lower() > prox[0][0][0].lower():
-        lista_planetas[i], lista_planetas[i + 1] = lista_planetas[i + 1], lista_planetas[i]
+        lista_planetas[idx], lista_planetas[idx + 1] = lista_planetas[idx + 1], lista_planetas[idx]
 
 
 if len(lista_planetas) > 0:
