@@ -89,13 +89,30 @@ else:
 n_lines = int(input())
 n_cols = int(input())
 matrix = []
+"""
+  [\n
+    [ 1, 2, 3 ],\n
+    [ 4, 5, 6 ],\n
+    [ 7, 8, 9 ],\n
+  ]
+"""
+radar = []
+"""
+  [\n
+    [ "X", " . ", " . " ],\n
+    [ " . ", " . ", " . " ],\n
+    [ " . ", " . ", " . " ],\n
+  ]
+"""
 radaring = True  # radareando...?
 char_coods = [0, 0]
 """
- [0] = linha  | Y\n
- [1] = coluna | X
+ [0] = linha\n
+ [1] = coluna
+  a LINHA vem antes do COLUNA em todos os casos de acesso aos floats
+ 
 """
-#
+# criação da matrix
 for line in range(n_lines - 1):
   inp_lines = input().split(" - ")
   for el in inp_lines:  # conversão de str pra float
@@ -103,20 +120,45 @@ for line in range(n_lines - 1):
 
   matrix.append(inp_lines)
 
-while radaring:
-  x = char_coods[1]  # eixo X do personagem
-  y = char_coods[0]  # eixo Y do personagem
-  up = 0
-  down = 0
-  left = 0
-  right = 0
+# criação do radar
+for line in range(n_lines):
+  for char in range(n_cols):
+    radar[line][char] = "."
 
-  if matrix.index(matrix[x]) > 0:
-    up = matrix[x][y - 1]
-  if matrix.index(matrix[x]) < n_lines - 1:
-    down = matrix[x][y + 1]
-  if matrix[x].index(matrix[x][y]) > 0:
-    left = matrix[x - 1][y]
-  if matrix[x].index(matrix[x][y]) < n_cols:
-    right = matrix[x + 1][y]
-    
+radar[char_coods[0]][char_coods[1]] = "X" # marca do ponto de partida
+
+while radaring:
+  LINE = char_coods[0]  # eixo Y do personagem
+  COLUMN = char_coods[1]  # eixo X do personagem
+
+  highest_value = ["center", matrix[char_coods[0][1]]]
+  """
+    [ 0 ] = direção (str)
+    [ 1 ] = valor (float)
+  """
+
+  #  validadndo arredores
+  if matrix.index(matrix[LINE]) > 0:
+    up_coords = [LINE - 1, COLUMN]
+    if matrix[up_coords[0]][up_coords[1]] > highest_value[1]:
+      radar[LINE][COLUMN], radar[up_coords[1]][up_coords[0]] = "^", "X"
+      char_coods = up_coords
+
+  if matrix.index(matrix[LINE]) < n_lines - 1:
+    down_coords = [LINE + 1, COLUMN]
+    if matrix[down_coords[0]][down_coords[1]] > highest_value[1]:
+      radar[LINE][COLUMN], radar[down_coords[1]][down_coords[0]] = "v", "X"
+      char_coods = down_coords
+
+  if matrix[LINE].index(matrix[LINE][COLUMN]) > 0:
+    left_coords = [LINE, COLUMN - 1]
+    if matrix[left_coords[0]][left_coords[1]] > highest_value[1]:
+      radar[LINE][COLUMN], radar[left_coords[1]][left_coords[0]] = "<", "X"
+      char_coods = left_coords
+
+  if matrix[LINE].index(matrix[LINE][COLUMN]) < n_cols:
+    right_coords = [LINE, COLUMN + 1]
+    if matrix[right_coords[0]][right_coords[1]] > highest_value[1]:
+      radar[LINE][COLUMN], radar[right_coords[1]][right_coords[0]] = ">", "X"
+      char_coods = right_coords
+
