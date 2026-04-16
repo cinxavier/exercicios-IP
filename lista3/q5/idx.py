@@ -20,38 +20,38 @@ idx [2] = ordem de chegada
 """
 
 while searching:
-    item_achado = input()
+  item_achado = input()
 
-    if item_achado == "Fim Da Coleta!":
-        searching = False  # acaba o loop
+  if item_achado == "Fim Da Coleta!":
+    searching = False  # acaba o loop
 
-    elif item_achado not in lixo:  # se n for lixo
-        its_in_invent = False
+  elif item_achado not in lixo:  # se n for lixo
+    its_in_invent = False
 
-        for item_coletado in coletados:
-            if item_coletado[0] == item_achado:  # se o item tem registro
-                item_coletado[1] += 1  # adiciona em quantidade
-                its_in_invent = True  # e avisa que foi pego
+    for item_coletado in coletados:
+      if item_coletado[0] == item_achado:  # se o item tem registro
+        item_coletado[1] += 1  # adiciona em quantidade
+        its_in_invent = True  # e avisa que foi pego
 
-        if not its_in_invent:  # se não foi pego antes
-            coletados.append(
-                [item_achado, 1, len(coletados) + 1]
-            )  # adiciona item ao inventário
+    if not its_in_invent:  # se não foi pego antes
+      coletados.append(
+        [item_achado, 1, len(coletados) + 1]
+      )  # adiciona item ao inventário
 
 print("desordenados:", coletados)  # print
 # ============================================== ordenação
 for _ in coletados:
-    for idx in range(len(coletados) - 1):
-        atual = coletados[idx]
-        prox = coletados[idx + 1]
-        if atual[1] < prox[1]:
-            coletados[idx], coletados[idx + 1] = (
-                coletados[idx + 1],
-                coletados[idx],
-            )
-        elif atual[1] == prox[1]:
-            if atual[2] > prox[2]:
-                coletados[idx], coletados[idx + 1] = coletados[idx + 1], coletados[idx]
+  for idx in range(len(coletados) - 1):
+    atual = coletados[idx]
+    prox = coletados[idx + 1]
+    if atual[1] < prox[1]:
+      coletados[idx], coletados[idx + 1] = (
+        coletados[idx + 1],
+        coletados[idx],
+      )
+    elif atual[1] == prox[1]:
+      if atual[2] > prox[2]:
+        coletados[idx], coletados[idx + 1] = coletados[idx + 1], coletados[idx]
 
 print("ordenados:", coletados)  # print
 # ============================================== contagem de missão
@@ -60,31 +60,29 @@ has_mission_item = False
 pontos = 0
 
 for item_coletado in coletados:
-    if (
-        item_coletado[0] in missao
-    ):  # se estiver na adjacent_values de objetivo de missão
-        has_mission_item = True  # está em objetivo de missão
+  if item_coletado[0] in missao:  # se estiver na adjacent_values de objetivo de missão
+    has_mission_item = True  # está em objetivo de missão
 
 # ============================================== pontuação
 if has_mission_item:
-    for item_coletado in coletados:
-        if item_coletado[0] in missao:
-            pontos += 30 * item_coletado[1]
+  for item_coletado in coletados:
+    if item_coletado[0] in missao:
+      pontos += 30 * item_coletado[1]
 
-        elif item_coletado[0] in bonus:
-            pontos += 10 * item_coletado[1]
+    elif item_coletado[0] in bonus:
+      pontos += 10 * item_coletado[1]
 
-        else:
-            pontos -= 5 * item_coletado[1]
+    else:
+      pontos -= 5 * item_coletado[1]
 
-        if pontos > 100:
-            pontos = 100
-        elif pontos < 0:
-            pontos = 0
+    if pontos > 100:
+      pontos = 100
+    elif pontos < 0:
+      pontos = 0
 
-    print("pontos:", pontos)  # print
+  print("pontos:", pontos)  # print
 else:
-    print("Nenhum item de missão coletado.")  # print
+  print("Nenhum item de missão coletado.")  # print
 
 # ============================================== mapeamento
 #  variaveis
@@ -116,107 +114,134 @@ char_coods = [0, 0]
 """
 # criação da matrix
 for _ in range(n_lines):
-    inp_lines = input().split(" - ")
-    for idx in range(len(inp_lines)):  # conversão de str pra float
-        inp_lines[idx] = float(inp_lines[idx])
+  inp_lines = input().split(" - ")
+  for idx in range(len(inp_lines)):  # conversão de str pra float
+    inp_lines[idx] = float(inp_lines[idx])
 
-    matrix.append(inp_lines)
+  matrix.append(inp_lines)
 
 # criação do radar
 for line in range(n_lines):
-    new_line = []
-    for char in range(n_cols):
-        new_line.append(".")
-    radar.append(new_line)
+  new_line = []
+  for char in range(n_cols):
+    new_line.append(".")
+  radar.append(new_line)
 
 radar[char_coods[0]][char_coods[1]] = "X"  # marca do personagem
 
 while radaring:
-    LINE = char_coods[0]  # eixo Y do personagem
-    COLUMN = char_coods[1]  # eixo X do personagem
+  LINE = char_coods[0]  # eixo Y do personagem
+  COLUMN = char_coods[1]  # eixo X do personagem
 
-    center_value = matrix[char_coods[0]][char_coods[1]]
-    adjacent_values = []
-    """
+  center_value = matrix[char_coods[0]][char_coods[1]]
+  adjacent_values = []
+  """
     [ 0 ] = direção (str)
     [ 1 ] = valor (float)
   """
-    up_coords = 0
-    down_coords = 0
-    left_coords = 0
-    right_coords = 0
-    #  validadndo arredores
-    if matrix.index(matrix[LINE]) > 0:  # verifica se é possível subir
-        up_coords = [LINE - 1, COLUMN]  # registra as coordenadas acima
+  up_coords = 0
+  down_coords = 0
+  left_coords = 0
+  right_coords = 0
+  #  validadndo arredores
+  if matrix.index(matrix[LINE]) > 0:  # verifica se é possível subir
+    up_coords = [LINE - 1, COLUMN]  # registra as coordenadas acima
 
-        if (
-            matrix[up_coords[0]][up_coords[1]] > center_value
-        ):  # verifica se o valor acima é maior
-            adjacent_values.append(
-                ["up", matrix[up_coords[0]][up_coords[1]]]
-            )  # registro de valor
-    # daqui pra baixo só repete o processo acima pra baixo, esquerda e direita, respectivamente
-    if matrix.index(matrix[LINE]) < n_lines - 1:
-        down_coords = [LINE + 1, COLUMN]
+    if (
+      matrix[up_coords[0]][up_coords[1]] > center_value
+    ):  # verifica se o valor acima é maior
+      adjacent_values.append(
+        ["up", matrix[up_coords[0]][up_coords[1]]]
+      )  # registro de valor
+  # daqui pra baixo só repete o processo acima pra baixo, esquerda e direita, respectivamente
+  if matrix.index(matrix[LINE]) < n_lines - 1:
+    down_coords = [LINE + 1, COLUMN]
 
-        if matrix[down_coords[0]][down_coords[1]] > center_value:
-            adjacent_values.append(
-                ["down", matrix[down_coords[0]][down_coords[1]]]
-            )  # registro de valor
-    if matrix[LINE].index(matrix[LINE][COLUMN]) > 0:
-        left_coords = [LINE, COLUMN - 1]
+    if matrix[down_coords[0]][down_coords[1]] > center_value:
+      adjacent_values.append(
+        ["down", matrix[down_coords[0]][down_coords[1]]]
+      )  # registro de valor
+  if matrix[LINE].index(matrix[LINE][COLUMN]) > 0:
+    left_coords = [LINE, COLUMN - 1]
 
-        if matrix[left_coords[0]][left_coords[1]] > center_value:
-            adjacent_values.append(
-                ["left", matrix[left_coords[0]][left_coords[1]]]
-            )  # registro de valor
-    if matrix[LINE].index(matrix[LINE][COLUMN]) < n_cols - 1:
-        right_coords = [LINE, COLUMN + 1]
+    if matrix[left_coords[0]][left_coords[1]] > center_value:
+      adjacent_values.append(
+        ["left", matrix[left_coords[0]][left_coords[1]]]
+      )  # registro de valor
+  if matrix[LINE].index(matrix[LINE][COLUMN]) < n_cols - 1:
+    right_coords = [LINE, COLUMN + 1]
 
-        if matrix[right_coords[0]][right_coords[1]] > center_value:
-            adjacent_values.append(
-                ["right", matrix[right_coords[0]][right_coords[1]]]
-            )  # registro de valor
-    if not adjacent_values:  # se não tiver nenhum valor maior
-        radaring = False  # termina o loop
-        print(center_value)  # print
-    else:  # se existir um valor maior
-        # bubble sort de cria
-        for _ in adjacent_values:
-            for idx in range(len(adjacent_values) - 1):
-                atual = adjacent_values[idx][1]
-                prox = adjacent_values[idx + 1][1]
-                if atual < prox:
-                    adjacent_values[idx], adjacent_values[idx + 1] = (
-                        adjacent_values[idx + 1],
-                        adjacent_values[idx],
-                    )
-        if adjacent_values[0][0] == "up":
-            radar[LINE][COLUMN], radar[up_coords[0]][up_coords[1]] = "^", "X"
-            char_coods = up_coords
-        elif adjacent_values[0][0] == "down":
-            radar[LINE][COLUMN], radar[down_coords[0]][down_coords[1]] = "v", "X"
-            char_coods = down_coords
-        elif adjacent_values[0][0] == "left":
-            radar[LINE][COLUMN], radar[left_coords[0]][left_coords[1]] = "<", "X"
-            char_coods = left_coords
-        elif adjacent_values[0][0] == "right":
-            radar[LINE][COLUMN], radar[right_coords[0]][right_coords[1]] = ">", "X"
-            char_coods = right_coords
+    if matrix[right_coords[0]][right_coords[1]] > center_value:
+      adjacent_values.append(
+        ["right", matrix[right_coords[0]][right_coords[1]]]
+      )  # registro de valor
+  if not adjacent_values:  # se não tiver nenhum valor maior
+    radaring = False  # termina o loop
+    print(center_value)  # print
+  else:  # se existir um valor maior
+    # bubble sort de cria
+    for _ in adjacent_values:
+      for idx in range(len(adjacent_values) - 1):
+        atual = adjacent_values[idx][1]
+        prox = adjacent_values[idx + 1][1]
+        if atual < prox:
+          adjacent_values[idx], adjacent_values[idx + 1] = (
+            adjacent_values[idx + 1],
+            adjacent_values[idx],
+          )
+    if adjacent_values[0][0] == "up":
+      radar[LINE][COLUMN], radar[up_coords[0]][up_coords[1]] = "^", "X"
+      char_coods = up_coords
+    elif adjacent_values[0][0] == "down":
+      radar[LINE][COLUMN], radar[down_coords[0]][down_coords[1]] = "v", "X"
+      char_coods = down_coords
+    elif adjacent_values[0][0] == "left":
+      radar[LINE][COLUMN], radar[left_coords[0]][left_coords[1]] = "<", "X"
+      char_coods = left_coords
+    elif adjacent_values[0][0] == "right":
+      radar[LINE][COLUMN], radar[right_coords[0]][right_coords[1]] = ">", "X"
+      char_coods = right_coords
 
 # ============================================== calculo do binário
+# eu decide fazer a conversão de binario na mão, o motivo: deu vontade
+# variáveis
 inp_bin = input()
-bits_list = list(inp_bin) # separa os bits
-int_num = 0 # número em formato decimal, conversão na mão msm
+bits_list = list(inp_bin)  # separa os bits
+curr_int = 0  # número em formato decimal
+goal_int = 88
+num_of_operations = 0
+prev_bin = inp_bin
+curr_bin = ""
 
-# inversão da lista
+# inversão da lista, pra converter bin -> int
 for idx in range(len(bits_list)):
-  end_idx = len(bits_list) - idx -1
+  end_idx = len(bits_list) - idx - 1
   if idx >= end_idx:
     bits_list[idx], bits_list[end_idx] = bits_list[end_idx], bits_list[idx]
-  
 
+# set do numero atual
 for idx in range(len(bits_list)):
-    if bits_list[idx] == "1":
-        int_num += 2**idx
-        print(int_num)
+  if bits_list[idx] == "1":
+    curr_int += 2**idx
+
+print(curr_int) 
+for diff_num in range(goal_int - curr_int):
+  int_to_convert = curr_int + diff_num + 1
+  print()  
+  print(int_to_convert)
+
+  for _ in range(7):
+    int_to_convert = int(int_to_convert)  # trunca a casa decimal float -> int
+
+    curr_bin += str(int_to_convert % 2)
+    int_to_convert = int_to_convert / 2
+
+  for idx in range(7):
+    if list(prev_bin)[idx] != list(curr_bin)[idx]:
+      num_of_operations +=1
+
+  print(prev_bin)
+  print(curr_bin)
+  print(num_of_operations)  
+  prev_bin = curr_bin
+  curr_bin = ""
