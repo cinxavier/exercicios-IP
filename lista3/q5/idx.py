@@ -1,7 +1,7 @@
 # Querido e gentil monitor, por fins de maior qualidade de vida,
 # sujiro que você copie esse código e cole no ÚNICO editor de código existente
 # na atualidade, o VScode, para que possas usufruir do recurso de notação de aspas triplas
-# e possa relembra, com facilidade, o que significa cada índice de cada lista, e manter suas madeixas
+# e possa relembra, com facilidade, o que significa cada índice de cada adjacent_values, e manter suas madeixas
 # em sua cabeça, não fique calvo por ler código mal diagramado
 # assinado: Lady Elma Maria.
 
@@ -60,7 +60,7 @@ has_mission_item = False
 pontos = 0
 
 for item_coletado in coletados:
-  if item_coletado[0] in missao:  # se estiver na lista de objetivo de missão
+  if item_coletado[0] in missao:  # se estiver na adjacent_values de objetivo de missão
     has_mission_item = True  # está em objetivo de missão
 
 # ============================================== pontuação
@@ -113,52 +113,95 @@ char_coods = [0, 0]
  
 """
 # criação da matrix
-for line in range(n_lines - 1):
+for _ in range(n_lines):
   inp_lines = input().split(" - ")
-  for el in inp_lines:  # conversão de str pra float
-    el = float(el)
+  for idx in range(len(inp_lines)):  # conversão de str pra float
+    inp_lines[idx] = float(inp_lines[idx])
 
   matrix.append(inp_lines)
 
 # criação do radar
 for line in range(n_lines):
+  new_line = []
   for char in range(n_cols):
-    radar[line][char] = "."
+    new_line.append(".")
+  radar.append(new_line)
 
-radar[char_coods[0]][char_coods[1]] = "X" # marca do ponto de partida
+radar[char_coods[0]][char_coods[1]] = "X"  # marca do personagem
 
 while radaring:
   LINE = char_coods[0]  # eixo Y do personagem
   COLUMN = char_coods[1]  # eixo X do personagem
 
-  highest_value = ["center", matrix[char_coods[0][1]]]
+  center_value = matrix[char_coods[0]][char_coods[1]]
+  adjacent_values = []
   """
     [ 0 ] = direção (str)
     [ 1 ] = valor (float)
   """
-
+  up_coords = 0
+  down_coords = 0
+  left_coords = 0
+  right_coords = 0
   #  validadndo arredores
-  if matrix.index(matrix[LINE]) > 0:
-    up_coords = [LINE - 1, COLUMN]
-    if matrix[up_coords[0]][up_coords[1]] > highest_value[1]:
-      radar[LINE][COLUMN], radar[up_coords[1]][up_coords[0]] = "^", "X"
-      char_coods = up_coords
+  if matrix.index(matrix[LINE]) > 0:  # verifica se é possível subir
+    up_coords = [LINE - 1, COLUMN]  # registra as coordenadas acima
 
+    if (
+      matrix[up_coords[0]][up_coords[1]] > center_value
+    ):  # verifica se o valor acima é maior
+      adjacent_values.append(
+        ["up", matrix[up_coords[0]][up_coords[1]]]
+      )  # registro de valor
+  # daqui pra baixo só repete o processo acima pra baixo, esquerda e direita, respectivamente
   if matrix.index(matrix[LINE]) < n_lines - 1:
     down_coords = [LINE + 1, COLUMN]
-    if matrix[down_coords[0]][down_coords[1]] > highest_value[1]:
-      radar[LINE][COLUMN], radar[down_coords[1]][down_coords[0]] = "v", "X"
-      char_coods = down_coords
 
+    if matrix[down_coords[0]][down_coords[1]] > center_value:
+      adjacent_values.append(
+        ["down", matrix[down_coords[0]][down_coords[1]]]
+      )  # registro de valor
   if matrix[LINE].index(matrix[LINE][COLUMN]) > 0:
     left_coords = [LINE, COLUMN - 1]
-    if matrix[left_coords[0]][left_coords[1]] > highest_value[1]:
-      radar[LINE][COLUMN], radar[left_coords[1]][left_coords[0]] = "<", "X"
-      char_coods = left_coords
 
-  if matrix[LINE].index(matrix[LINE][COLUMN]) < n_cols:
+    if matrix[left_coords[0]][left_coords[1]] > center_value:
+      adjacent_values.append(
+        ["left", matrix[left_coords[0]][left_coords[1]]]
+      )  # registro de valor
+  if matrix[LINE].index(matrix[LINE][COLUMN]) < n_cols - 1:
     right_coords = [LINE, COLUMN + 1]
-    if matrix[right_coords[0]][right_coords[1]] > highest_value[1]:
-      radar[LINE][COLUMN], radar[right_coords[1]][right_coords[0]] = ">", "X"
+
+    if matrix[right_coords[0]][right_coords[1]] > center_value:
+      adjacent_values.append(
+        ["right", matrix[right_coords[0]][right_coords[1]]]
+      )  # registro de valor
+  if not adjacent_values:  # se não tiver nenhum valor maior
+    radaring = False  # termina o loop
+    print(center_value)
+  else:  # se existir um valor maior
+    # bubble sort de cria
+    for _ in adjacent_values:
+      for idx in range(len(adjacent_values) - 1):
+        atual = adjacent_values[idx][1]
+        prox = adjacent_values[idx + 1][1]
+        if atual < prox:
+          adjacent_values[idx], adjacent_values[idx + 1] = (
+            adjacent_values[idx + 1],
+            adjacent_values[idx],
+          )
+    if adjacent_values[0][0] == "up":
+      radar[LINE][COLUMN], radar[up_coords[0]][up_coords[1]] = "^", "X"
+      char_coods = up_coords
+    elif adjacent_values[0][0] == "down":
+      radar[LINE][COLUMN], radar[down_coords[0]][down_coords[1]] = "v", "X"
+      char_coods = down_coords
+    elif adjacent_values[0][0] == "left":
+      radar[LINE][COLUMN], radar[left_coords[0]][left_coords[1]] = "<", "X"
+      char_coods = left_coords
+    elif adjacent_values[0][0] == "right":
+      radar[LINE][COLUMN], radar[right_coords[0]][right_coords[1]] = ">", "X"
       char_coods = right_coords
 
+
+for line in radar:
+  print(" ".join(line))
