@@ -1,0 +1,45 @@
+WELCOME TO ROBCO INDUSTRIES (TM) TERMLINK
+
+USER Sole Survivor LOGGED IN SUCCESSFULLY
+
+NORM: Com essa sorte absurda, eu só vou fingir surpresa quando a máquina se abrir sozinha pra você.
+
+Palavras encontradas: 
+Tentativas: 0/4.
+
+;A<.,.)_}G.()
+[}-}(@<$#U_;_
+&._<@>:[!E&,,
+;)()(%-<;R()&
+,:!)>#&!<R%{-
+[,}]}:}!{A!&-
+(@}.$[#!#_}}<
+:})){!-#$@:{(
+.-!}.!.!>$>#,
+>%!--[_NUNCA,
+!#MUDA)@[}#%<
+()}>;@&{&(,:%
+
+
+Nova tentativa: Coordenada 0-9
+
+NORM: Boa! A coordenada 0-9 pegou o caractere G da palavra GUERRA.
+
+Palavras encontradas: GUERRA
+Tentativas: 1/4.
+
+;A<.,.)_}*.()
+[}-}(@<$#*_;_
+&._<@>:[!*&,,
+;)()(%-<;*()&
+,:!)>#&!<*%{-
+[,}]}:}!{*!&-
+(@}.$[#!#_}}<
+:})){!-#$@:{(
+.-!}.!.!>$>#,
+>%!--[_NUNCA,
+!#MUDA)@[}#%<
+()}>;@&{&(,:%
+
+
+NORM: Ah, sortudo(a) miserável!! Não acredito que você acertou de primeira... Toma uma Nuka-Cola Quantum antes que eu mude de ideia!
