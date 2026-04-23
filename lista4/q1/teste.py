@@ -1,4 +1,13 @@
-def non_dict(key, array):
+game_data = [
+  ["hornet_hp", 5],
+  ["hp_healed", 0],
+  ["silk_amount", 0],
+  ["silk_used", 0],
+  ["boss_hp", 140],
+]
+
+
+def non_dict(key, array=game_data):
   found = False
   for list_of_2 in array:
     if not found:
@@ -13,15 +22,18 @@ def hornet_turn(action, game_data):
 
 
 def game_system():
-  game_data = [
-    ["hornet_hp", 5],
-    ["hp_healed", 0],
-    ["silk_amount", 0],
-    ["silk_used", 0],
-    ["boss_hp", 140],
-  ]
   print(game_data)
   hornet_turn("Ferrão", game_data)
   print(game_data)
 
+
 game_system()
+
+boo = False
+
+print(boo)
+def change(boolean):
+  return not boolean
+
+boo = change(boo)
+print(boo)
