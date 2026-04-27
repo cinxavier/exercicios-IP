@@ -62,15 +62,13 @@ def put(key, array=game_data):
 def hornet_turn(action):
   if action == "Ferrão":
     put("boss_hp")[1] -= sting_atk_dmg  # boss perde hp
+  
+    put("silk_amount")[1] += sting_atk_earn  # faz mas seda
+    put("silk_created")[1] += sting_atk_earn  # registra que fez mais seda
 
-    if get("silk_amount") <= silk_amount_limit - sting_atk_earn:  # se a hornet conseguir gerar toda a seda possível   # fmt: skip
-      put("silk_amount")[1] += sting_atk_earn  # ela faz
-      put("silk_created")[1] += sting_atk_earn  # registra que fez
+    if get("silk_amount") > silk_amount_limit:
+      put("silk_amount")[1] = silk_amount_limit
 
-    elif get("silk_amount") < silk_amount_limit:  # mas se ela não conseguir gerar o máximo   # fmt: skip
-      silk_needed = sting_atk_earn - (silk_amount_limit - get("silk_amount"))  # calcula exatamente o que ela produz   # fmt: skip
-      put("silk_amount")[1] += silk_needed  # add ao inventário
-      put("silk_created")[1] += silk_needed  # registra que addeu
 
   elif action == "Ataque de Seda":
     if get("silk_amount") >= silk_atk_cost:  # se hornet tiver seda o suficiente
