@@ -1,7 +1,7 @@
 Entendo… Vamos começar do começo.
 
 ====== Restam 2 dias. ======
-Escutando: Sneaky Driver - Bill Kiley
+Escutando: Sneaky Driver - DJ Electrohead
 Analisando alvo: Josh Rose... Classificação: Elite
 Missão Completa. | Manipulação temporal: 4 tentativa(s)
 Dragão refletiu 5 ataque(s)!
@@ -13,10 +13,8 @@ Missão Completa. | Manipulação temporal: 4 tentativa(s)
 Dragão refletiu 5 ataque(s)!
 
 ====== Restam 0 dias. ======
-Escutando: Nocturne - Bill Kiley
-Analisando alvo: DJ Electrohead... Classificação: Iniciante
-Missão Completa. | Manipulação temporal: 3 tentativa(s)
-Dragão refletiu 0 ataque(s)!
+Escutando: Nocturne - DJ Electrohead
+DJ Electrohead é morto na sua frente. Lhe avisaram para NÃO FALAR com ele.
 
 ====== FIM DAS MISSÕES ======
 Parabéns Subject ZERO! Seu trabalho deve ser recompensado. Nova dose do seu remédio esta aqui.
