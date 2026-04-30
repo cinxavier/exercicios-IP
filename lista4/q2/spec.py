@@ -17,7 +17,7 @@ for i in range(1, list(cases_folders.iterdir()).__len__() + 1):
     open(cwd + f"case{i}/data.txt", "r") as data,
     open(cwd + f"case{i}/program_res.txt", "a") as program_res,
   ):
-    subprocess.run(["python3", "idx.py"], stdin=data, stdout=program_res)
+    subprocess.run(["python3", "/home/CIN/mvhx/projects/exercicios-IP/lista4/q2/idx.py"], stdin=data, stdout=program_res)
 
   with (
     open(cwd + f"case{i}/program_res.txt", "r") as program_res,

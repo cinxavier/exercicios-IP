@@ -64,7 +64,6 @@ print("Entendo… Vamos começar do começo.")
 zero_died = False
 for day in range(days, -1, -1):
   if not zero_died:
-    print()
 
     song_info = input().split(" - ")  # nume - autor
     target_info = input().split(" - ")  # nome - ameaca - armado
@@ -72,7 +71,7 @@ for day in range(days, -1, -1):
     song_name = song_info[0]
     song_autor = song_info[1]
 
-    print(f"====== Restam {day} dias. ======")
+    print(f"\n====== Restam {day} dias. ======")
     print(f"Escutando: {song_name} - {song_autor}")
 
     special_case = False
@@ -102,8 +101,7 @@ for day in range(days, -1, -1):
         print(f"Dragão refletiu {reflectedAtks} ataque(s)!")
 
 if not zero_died:
-  print()
-  print("====== FIM DAS MISSÕES ======")
+  print("\n====== FIM DAS MISSÕES ======")
   print(
     "Parabéns Subject ZERO! Seu trabalho deve ser recompensado. Nova dose do seu remédio esta aqui."
   )
