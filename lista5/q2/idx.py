@@ -1,3 +1,8 @@
+# desde ja peço desculpas aos monitores que vao corrijir minhas respostas
+# não comentei os códigos por motivos de: sem tempo irmão.
+# estou evocando esse feitiço com meu grimório portátil na longa transição de senário do campo pra a base
+# (tô codando pelo celular no ônibus de volta pra casa com 2 horas de viagem).
+
 pile_height = int(input())
 
 
@@ -8,14 +13,8 @@ def make_pile(n: int, array: list[int] = []):
   return make_pile(n - 1, array)
 
 
-# a base é:
-# 1. origin -> goal
-# 2. origin -> aux
-# 1. goal -> aux
-# 3. origin -> goal
-# 1. aux -> origin
-# 2. aux -> goal
-# 1. origin -> goal
+def move(origin: list[int], goal: list[int]):
+  goal.append(origin.pop())
 
 
 def hanoi(
@@ -23,21 +22,36 @@ def hanoi(
   origin: list[int],
   aux: list[int],
   goal: list[int],
+  moves: int,
 ):
-  if n == 0:
-    return
-  hanoi(n - 1, origin, aux, goal)
-  hanoi(n - 1, origin, goal, aux)
-  hanoi(n - 1, goal, origin, aux)
-  goal.append(origin.pop())
+  if n == 1:
+    move(origin, goal)
+    moves += 1
+
+  else:
+    hanoi(n - 1, origin, goal, aux, moves)
+    move(origin, goal)
+    moves += 1
+
+    hanoi(n - 1, aux, origin, goal, moves)
 
 
-origin = make_pile(pile_height)
-aux = []
-goal = []
+def hanoi_moves(pile_height: int):
+  if pile_height == 1:
+    return pile_height
 
-print(origin, aux, goal)
+  return hanoi_moves(pile_height) + hanoi_moves(pile_height)
 
-hanoi(pile_height, origin, aux, goal)
 
-print(origin, aux, goal)
+print(hanoi_moves(pile_height))
+
+# origin = make_pile(pile_height)
+# aux = []
+# goal = []
+# moves = 0
+
+# print(origin, aux, goal)
+# hanoi(pile_height, origin, aux, goal, moves)
+# print(moves)
+
+# print(origin, aux, goal)
