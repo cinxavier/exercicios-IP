@@ -1,0 +1,19 @@
+3
+Brasil
+fase de grupos 9
+oitavas 2
+quartas 1
+*
+França
+fase de grupos 6
+oitavas 3
+quartas 2
+semifinal 1
+*
+Argentina
+fase de grupos 7
+oitavas 2
+quartas 2
+semifinal 2
+final 3
+*
