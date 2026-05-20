@@ -7,6 +7,12 @@ score = {
   "final": {},
 }
 
+def get_keys(dic: dict):
+  tup = ()
+  for key in dic:
+    tup += (key,)
+  return tup
+
 for _ in range(num_of_teams):
   is_running = True
   team_name = ""
@@ -25,10 +31,10 @@ for _ in range(num_of_teams):
         
 
 def arith_mean(dic: dict):
-  stages = dic.keys()
+  stages = get_keys(dic)
   res = {'arith_mean': 0, 'stage': ''}
   for stage in stages:
-    teams = dic[stage].keys()
+    teams = get_keys(dic[stage])
     if len(teams) > 1:
       total = 0
       for team in teams:
@@ -46,13 +52,13 @@ arith_mean = arith_mean(score)
 print(arith_mean)
 
 
-stages = score.keys()
+stages = get_keys(score)
 for stage in stages:
   if len(score[stage]) > 0:
     print()
     print(stage)
 
-    teams = score[stage].keys()
+    teams = get_keys(score[stage])
     for team in list(teams):
       print(f"{team} - {score[stage][team]}")
 
