@@ -50,12 +50,17 @@ ranking = (
 )
 
 sockers = {}
-
-def get_keys(dic: dict):
+def tuplefy(dic:dict) -> tuple:
   tup = ()
   for key in dic:
-    tup += (key,)
+    tup += ((key, dic[key]),)
   return tup
+
+def sort_dict(dic: dict):
+  new_dic = {}
+  tup = tuplefy(dic)
+  for item_idx in (range(len(tup) - 2)):
+    if tup[item_idx][1] < tup[item_idx][1]
 
 def get_history():
   while True:
