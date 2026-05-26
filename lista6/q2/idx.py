@@ -50,33 +50,34 @@ ranking = (
 )
 
 sockers = {}
-def tuplefy(dic:dict) -> tuple:
+
+
+def tuplefy(dic: dict) -> tuple:
   tup = ()
   for key in dic:
     tup += ((key, dic[key]),)
   return tup
 
-def sort_dict(dic: dict):
-  new_dic = {}
-  tup = tuplefy(dic)
-  for item_idx in (range(len(tup) - 2)):
-    if tup[item_idx][1] < tup[item_idx][1]
 
-def get_history():
+def sort_dict(dic: dict):
+  return tuple(sorted(tuplefy(dic)))
+
+
+def get_history(dic:dict):
   while True:
     socker_input = input()
     if socker_input == "FIM":
       return
-    
-    if socker_input not in sockers:
-      sockers[socker_input] = 1
-    else:
-      sockers[socker_input] += 1
 
-sockers_keys = get_keys(sockers)
-def get_ranking(dic:dict, n:int):
-  pivot = dic[sockers_keys[0]]  
-  
-  
+    if socker_input not in dic:
+      dic[socker_input] = 1
+    else:
+      dic[socker_input] += 1
+
+
+def get_ranking(dic: dict, n: int):
+  pivot = dic[sockers_keys[0]]
+
+
 get_history()
 print(sockers)
