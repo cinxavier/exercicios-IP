@@ -77,16 +77,22 @@ def sort(len_limit: int, tup: tuple):
   for item_idx in range(len(tup)):
     curr_value = tup[item_idx]
 
-    if curr_value[1] > highest_value[1]:
+    if curr_value[1] > highest_value[1]: # ardenação baseada nos gols
       highest_value = curr_value
       highest_value_idx = item_idx
 
-    elif curr_value[1] == highest_value[1]:
-      if curr_value[2] < highest_value[2]:
+    elif curr_value[1] == highest_value[1]: 
+      if curr_value[2] < highest_value[2]: # ardenação baseada no rank
         highest_value = curr_value
         highest_value_idx = item_idx
 
       elif curr_value[2] == highest_value[2]:
+        if curr_value[0][0] < highest_value[0][0]: # ardenação alfabética
+          highest_value = curr_value
+          highest_value_idx = item_idx
+
+
+
         
 
   return (highest_value,) + sort(

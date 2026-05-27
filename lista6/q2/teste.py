@@ -1,7 +1,7 @@
 dic = {
-  "Endrick - Brasil": {"goals": 3, "ranking": 5},
-  "CR7 - Portugal": {"goals": 3, "ranking": 4},
-  "Messi - Argentina": {"goals": 1, "ranking": 2},
+  "Endrick - Brasil": {"goals": 3, "rank": 5},
+  "CR7 - Portugal": {"goals": 3, "rank": 4},
+  "Messi - Argentina": {"goals": 1, "rank": 2},
 }
 
 
@@ -38,12 +38,6 @@ def sort(len_limit: int, tup: tuple):
         highest_value = curr_value
         highest_value_idx = item_idx
 
-      elif curr_value[2] == highest_value[2]:
-        
-
   return (highest_value,) + sort(
     len_limit - 1, tup[:highest_value_idx] + tup[highest_value_idx + 1 :]
   )
-
-tup = tuplefy(dic)
-print(sort_by_goals(3, tup))
