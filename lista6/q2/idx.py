@@ -52,26 +52,46 @@ ranking = (
 sockers = {}
 
 
-# transforma o dicionário em uma tupla de tuplas (key, value)
+# transforma o dicionário em uma tupla de tuplas (key, (goals, rank))
 def tuplefy(dic: dict) -> tuple:
   tup = ()
   for key in dic:
-    tup += ((key, dic[key]["goals"], dic[key]["ranking"]),)
+    tup += (
+      (
+        key.split(" - ")[0],
+        dic[key]["goals"],
+        dic[key]["rank"],
+      ),
+    )
   return tup
 
 
-def sort_by_goals(item: tuple):
-  return item[1]
+def sort(len_limit: int, tup: tuple):
+  if len_limit == 0:
+    return ()
 
+  # -1 é para evitar problemas com jogadores (tipo o Gabriel Jesus na copa de 2018 e 2022) que marcaram 0 gols
+  highest_value = ("Fernandinho - Brasil", -1, 0)  # ele fez -1 gols na copa de 2018   # fmt: skip
+  highest_value_idx = 0
 
-def sort_by_rank(item: tuple):
-  return item[1]
+  for item_idx in range(len(tup)):
+    curr_value = tup[item_idx]
 
+    if curr_value[1] > highest_value[1]:
+      highest_value = curr_value
+      highest_value_idx = item_idx
 
-def sort_dict(dic: dict):
-  partial_sorted_tup = tuple(sorted(tuplefy(dic), reverse=True, key=sort_by_goals))[:3]
-  sorted_tup = ()
-  return partial_sorted_tup
+    elif curr_value[1] == highest_value[1]:
+      if curr_value[2] < highest_value[2]:
+        highest_value = curr_value
+        highest_value_idx = item_idx
+
+      elif curr_value[2] == highest_value[2]:
+        
+
+  return (highest_value,) + sort(
+    len_limit - 1, tup[:highest_value_idx] + tup[highest_value_idx + 1 :]
+  )
 
 
 def get_history(dic: dict):
@@ -83,11 +103,18 @@ def get_history(dic: dict):
     if socker_input not in dic:
       dic[socker_input] = {
         "goals": 1,
-        "ranking": ranking.index(socker_input.split(" - ")[1]),
+        "rank": ranking.index(socker_input.split(" - ")[1]),
       }
     else:
       dic[socker_input]["goals"] += 1
 
 
 get_history(sockers)
-print(sort_dict(sockers))
+podium = sort(3, tuplefy(sockers))
+
+print("Somente o melhor deve ser lembrado")
+print(f"O artilheiro foi {podium[0][0]} com {podium[0][1]} gols")
+print(
+  f"Eu poderia falar do {podium[1][0]} mas ele é somente o primeiro a ser esquecido"
+)
+print(f"O {podium[2][0]} então, nem pensar")
