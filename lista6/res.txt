@@ -1,1 +1,0 @@
-{'fase de grupos': {'Brasil': 9, 'França': 6, 'Argentina': 7}, 'oitavas': {'Brasil': 2, 'França': 3, 'Argentina': 2}, 'quartas': {'Brasil': 1, 'França': 2, 'Argentina': 2}, 'semifinal': {'França': 1, 'Argentina': 2}, 'final': {'Argentina': 3}}

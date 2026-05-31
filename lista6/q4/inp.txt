@@ -1,0 +1,23 @@
+22
+1 EN o the
+1 EN rápido quick
+1 EN marrom brown
+1 EN raposa fox
+1 EN pula jumps
+1 EN sobre over
+1 EN preguiçoso lazy
+1 EN cachorro dog
+1 EN olá hello
+1 ES o el
+1 ES sol sol
+1 ES brilha brilla
+1 ES muito mucho
+1 ES em en
+1 ES a la
+1 ES manhã mañana
+1 ES obrigado gracias
+2 EN hello
+2 EN the quick brown fox jumps over the lazy dog
+2 ES el sol brilla mucho en la mañana
+2 EN hello world
+2 ES el gato corre

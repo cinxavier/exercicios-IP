@@ -5,33 +5,33 @@ def make_matrix(n, matrix):
   matrix.append(line)
   return make_matrix(n - 1, matrix)
 
-def close_way(matrix, i, j):
-  matrix[i][j] = "#"
-  return matrix
+
+def close_way(matrix, y, x):
+  matrix[y][x] = "#"
 
 
-def dfs(matrix, n, i, j, keyword, limit):
-  if i < 0 or j < 0 or i >= n or j >= n:
+def dfs(matrix, n, y, x, keyword, limit):
+  if y < 0 or x < 0 or y >= n or x >= n:
     return False
 
-  valor = matrix[i][j]
+  curr_value = matrix[y][x]
 
-  if valor == "0" or valor == "#":
+  if curr_value == "0" or curr_value == "#":
     return False
 
-  if valor == "2":
+  if curr_value == "2":
     return True
 
   if limit < 0:
     return False
 
-  new_matrix = close_way(matrix, i, j)
+  close_way(matrix, y, x)
 
   return (
-    dfs(new_matrix, n, i + 1, j, keyword, limit - 1)
-    or dfs(new_matrix, n, i - 1, j, keyword, limit - 1)
-    or dfs(new_matrix, n, i, j + 1, keyword, limit - 1)
-    or dfs(new_matrix, n, i, j - 1, keyword, limit - 1)
+    dfs(matrix, n, y + 1, x, keyword, limit - 1)
+    or dfs(matrix, n, y - 1, x, keyword, limit - 1)
+    or dfs(matrix, n, y, x + 1, keyword, limit - 1)
+    or dfs(matrix, n, y, x - 1, keyword, limit - 1)
   )
 
 
@@ -41,7 +41,7 @@ n = int(input())
 print("O mapa da floresta me parece esquisito, certo Pascal?")
 
 keyword = input()
-print("Minha querida Rapunzel, a keyword-chave é?")
+print("Minha querida Rapunzel, a palavra-chave é?")
 
 pos = input().split(" ")
 x = int(pos[0])

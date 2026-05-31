@@ -1,0 +1,11 @@
+*ADD Mbappe Franca 8 2 150 1 0
+*ADD Modric Croacia 4 2 300 0 0
+*ADD DeBruyne Belgica 4 2 250 0 0
+*ADD Rodrygo Brasil 4 2 250 0 0
+*ADD Vinicius Brasil 4 2 250 0 0
+*ADD Griezmann Franca 4 2 250 0 0
+*ADD Neymar Brasil 4 2 200 2 0
+*ADD Lukaku Belgica 4 2 100 0 1
+*BOLA_DE_OURO
+*DESTAQUE_SELECAO Brasil
+*FIM

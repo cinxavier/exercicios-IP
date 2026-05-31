@@ -1,0 +1,12 @@
+Bem, amigos da rede! Sistema de Estatísticas VAR Edition no ar. Aguardando comandos...
+Bola de Ouro atual: Mbappe Franca com 8 gols
+Destaque da Brasil: Rodrygo 4 gols, 2 assistências
+Ranking Final:
+1. Mbappe (Franca) - G: 8, A: 2, P: 150, CA: 1, CV: 0
+2. Modric (Croacia) - G: 4, A: 2, P: 300, CA: 0, CV: 0
+3. DeBruyne (Belgica) - G: 4, A: 2, P: 250, CA: 0, CV: 0
+4. Rodrygo (Brasil) - G: 4, A: 2, P: 250, CA: 0, CV: 0
+5. Vinicius (Brasil) - G: 4, A: 2, P: 250, CA: 0, CV: 0
+6. Griezmann (Franca) - G: 4, A: 2, P: 250, CA: 0, CV: 0
+7. Neymar (Brasil) - G: 4, A: 2, P: 200, CA: 2, CV: 0
+8. Lukaku (Belgica) - G: 4, A: 2, P: 100, CA: 0, CV: 1

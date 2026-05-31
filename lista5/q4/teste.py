@@ -4,9 +4,8 @@ matrix = [
   [1, 5, 3, 7, 4, 8, 3],
 ]
 
-print(matrix)
-def mexe(matrix):
-  matrix[2][3] = "#"
+def mexe():
+  return (False or False)
   
-mexe(matrix)
-print(matrix)
+
+print(mexe())
